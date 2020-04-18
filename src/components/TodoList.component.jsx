@@ -8,6 +8,9 @@ const TodoList = () => {
         setTodos( todos.filter (todo => todo.id !== id) );
     }
 
+    console.log(todos.length);
+
+    if (todos.length !== 0) {
     return (
         <ul className="list-group">
             { todos.map (todo =>
@@ -15,7 +18,16 @@ const TodoList = () => {
             <i className="fa fa-times fa-lg text-danger float-right"
             onClick={deleteTodo.bind(this, todo.id)}></i></li>) }
         </ul>
+    )}
+
+    else {
+    return (
+        <div className="alert alert-warning" role="alert">
+        <strong>You have no Task!</strong> Either you are a efficient person or you 
+        have nothing to do. 
+        </div>
     )
+    }
 }
 
 export default TodoList;
