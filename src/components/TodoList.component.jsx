@@ -9,14 +9,12 @@ const TodoList = () => {
     }
 
     return (
-        <div>
-            <ul className="list-group">
-                { todos.map (todo =>
-                <li className="list-group-item" key={todo.id}>{todo.title}
-                <i className="fa fa-times fa-lg text-danger float-right"
-                onClick={deleteTodo.bind(this, todo.id)}></i></li>) }
-            </ul>
-        </div>
+        <ul className="list-group">
+            { todos.map (todo =>
+            <li className="list-group-item" key={todo.id}>{todo.title}
+            <i className="fa fa-times fa-lg text-danger float-right"
+            onClick={deleteTodo.bind(this, todo.id)}></i></li>) }
+        </ul>
     )
 }
 

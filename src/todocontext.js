@@ -1,12 +1,18 @@
-import React, { useState, createContext } from 'react';
+import React, { useState, createContext, useEffect } from 'react';
 
 export const TodoContext = createContext();
 
 export const TodoProvider = props => {
-    const [todos, setTodos] = useState( [
-        {title : "Learn React", id: 1},
-        {title : "Eat Dinner", id: 2},
-        {title : "Go to Sleep", id: 3}]);
+
+    const [todos, setTodos] = useState( () => {
+        return localStorage.getItem('todos') ?
+            JSON.parse(localStorage.getItem('todos')) : []
+    });
+    
+    useEffect(()=>{
+        localStorage.setItem('todos', JSON.stringify(todos))
+    }, [todos]);
+    
     return(
         <TodoContext.Provider value={[todos, setTodos]} >
             {props.children}
