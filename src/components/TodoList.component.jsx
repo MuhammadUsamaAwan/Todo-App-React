@@ -23,7 +23,7 @@ const TodoList = () => {
     else {
     return (
         <div className="alert alert-warning" role="alert">
-        <strong>You have no Task!</strong> Either you are a efficient person or you 
+        <strong>You have no Task!</strong> Either you are an efficient person or you 
         have nothing to do. 
         </div>
     )
